@@ -335,111 +335,60 @@
 
 
 
-/* @media(max-width:768px){
 
-.benefits-box{
-    max-width:95%;
-    padding:24px 22px;
-}
-
-.benefits-box h2{
-    font-size:28px;
-}
-
-.benefits-list li{
-    font-size:20px;
-    padding-left:40px;
-    margin:18px 0;
-}
-
-.benefits-list li::before{
-    font-size:28px;
-}
-
-} */
-
-
-
-
-    @media (max-width: 768px) {
+@media (max-width: 768px) {
 
     .hero{
         grid-template-columns: 1fr;
         gap: 12px;
     }
- 
-  h1{
-        font-size:25px;
-        line-height:1.1;
+
+    h1{
+        font-size: 34px;
+        line-height: 1.1;
+        margin-bottom: 10px;
     }
+
     .copy{
         font-size: 14px;
         margin-bottom: 12px;
     }
 
+
+
     /* Slider Box */
- .slider{
-   
-    height: 200px;          /* pehle agar 520px ya 450px hai to isko kam kar */
-        min-height: 170px;
-        padding: 10px;
-        border-radius: 20px;        /* Pehle 360+ tha */
-    overflow:hidden;
-    background:#0b1220;
-    border:1px solid rgba(255,255,255,.10);
-    box-shadow:0 10px 25px rgba(0,0,0,.35);
+.slider{
+    width: 290px;      /* pehle 220px tha */
+    height: 100px;     /* pehle 360px tha */
+    min-height: 70px;
+    margin: 10px auto;
+    padding: 8px;
+    border-radius: 18px;
 }
 
-.slide{
-        display:flex;
-        justify-content:center;
-        align-items:center;
-    }
-  
-    /* Images */
-     /* .slide img{
-        width:100%;
-        height:100%;
-        object-fit:contain;
-    } */
 
-      .slide img{
-    width:95%;
-    height:95%;
+
+.slide img{
+    width:115%;      /* image width badh gayi */
+    height:100%;
     object-fit:contain;
-    display:block;
-    margin:auto;
 }
 
 
+/* Slider Buttons */
+.slider-controls{
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 0 2px;
+}
 
-    .slider-controls{
-        left:0;
-        right:0;
-        top:50%;
-        transform:translateY(-50%);
-        display:flex;
-        justify-content:space-between;
-        padding:0 8px;
-    }
-  .slider-controls{
-        bottom:12px;
-    }
+.control{
+    width: 36px;
+    height: 36px;
+}
 
-
-      .control{
-        width:42px;
-        height:42px;
-    }
-
-     
-
-    /* First Image */
-    .slide:first-child img{
-        width: 95%;
-        height: 105%;
-        object-fit: contain;
-    }
 
     /* Buttons */
     .button{
@@ -448,41 +397,23 @@
     }
 
     /* Benefits Box */
- .benefits-box{
-        width:92%;
-        max-width:300px;
-        padding:14px 16px;
-        margin:18px auto;
-        border-radius:18px;
+    .benefits-box{
+        margin-top: 18px;
+        padding: 18px;
     }
 
-
-
-          .benefits-box ul{
-        padding-left:0;
-        margin:0;
+    .benefits-box li{
+        font-size: 18px;
+        margin: 14px 0;
     }
 
-          .benefits-box li{
-        font-size:15px;
-        font-weight:600;
-        line-height:1.4;
-        margin:10px 0;
-    }
-
-
-       .benefits-box li::before{
-        font-size:20px;
-        margin-right:10px;
-    }
-      
-   .benefits-title{
-        font-size:22px;
-        margin-bottom:12px;
+    .benefits-title{
+        font-size: 23px;
     }
 
 }
 
+    
     
 
 .footer-note{
