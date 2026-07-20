@@ -323,23 +323,33 @@
     }
 
     /* Arrows image ke beech me */
-    .slider-controls{
-        position:absolute;
-        left:0;
-        right:0;
-        top:50%;
-        transform:translateY(-50%);
-        display:flex;
-        justify-content:space-between;
-        padding:0 6px;
-        z-index:20;
-    }
+    
+
+   .slider-controls{
+      position:absolute;
+      top:50%;
+      left:0;
+      right:0;
+      transform:translateY(-50%);
+      display:flex;
+      justify-content:space-between;
+      padding:0 10px;
+      z-index:100;
+      pointer-events:none;
+  }
+
 
     .control{
         width:36px;
         height:36px;
         font-size:18px;
+       border-radius:50%;
+      pointer-events:auto;
+      background:rgba(255,255,255,.18);
+      backdrop-filter:blur(8px);
     }
+
+ 
 
     /* Dots */
     .dots{
