@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Telegram Landing Page</title>
+  <style>
+    :root { --bg: #0f172a; --card: rgba(15, 23, 42, 0.78); --line: rgba(255,255,255,.12); --text: #f8fafc; --muted: #cbd5e1; --accent: #38bdf8; }
+    * { box-sizing: border-box; }
+   
+    /* body{
+    margin:0;
+    min-height:100vh;
+    font-family:Inter,sans-serif;
+    color:#fff;
+    background:
+    radial-gradient(circle at top left,#3b82f6 0%,transparent 35%),
+    radial-gradient(circle at bottom right,#06b6d4 0%,transparent 35%),
+    linear-gradient(135deg,#0f172a,#111827,#020617);
+} */
+   
+    body { margin: 0; min-height: 100vh; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: var(--text); background: radial-gradient(circle at top, #1e293b 0, #0f172a 50%, #020617 100%); }
+    
+    .page { min-height: 100vh; display: grid; place-items: center; padding: clamp(16px, 3vw, 32px); }
+    
+    .shell { width: min(1120px, 100%); display: grid; gap: 24px; padding: clamp(18px, 3vw, 32px); border: 1px solid var(--line); border-radius: 24px; background: rgba(2, 6, 23, 0.6); box-shadow: 0 30px 80px rgba(0,0,0,.35); backdrop-filter: blur(14px); }
+    
+    /* .shell{
+    background:rgba(10,18,35,.78);
+    backdrop-filter:blur(18px);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:28px;
+
+    box-shadow:
+        0 0 35px rgba(37,99,235,.18),
+        0 20px 60px rgba(0,0,0,.55);
+} */
+    
+    
+    
+    /* .hero{
+    display:grid;
+    grid-template-columns:1fr 360px;
+    gap:40px;
+    align-items:center;
+} */
+
+/* .hero h1{
+    font-size:48px;
+    line-height:1.1;
+    margin-bottom:25px;   
+    position:relative;
+    z-index:10;
+} */
+
+
+.hero h1{
+    font-size: clamp(34px,5vw,60px);
+    font-weight:800;
+    color:#2563eb;   /* Same blue as App Benefits */
+    line-height:1.1;
+    margin-bottom:20px;
+
+    text-shadow:
+        0 0 12px rgba(37,99,235,.25),
+        0 4px 12px rgba(0,0,0,.25);
+}
+
+
+
+.hero{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:20px;
+}
+
+
+    .eyebrow { display: inline-flex; width: fit-content; padding: 8px 12px; border: 1px solid rgba(56,189,248,.3); border-radius: 999px; color: var(--accent); font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+    h1 { margin: 0; font-size: clamp(34px, 5vw, 62px); line-height: .98; letter-spacing: -.04em; }
+    .copy { margin: 0; max-width: 58ch; color: var(--muted); font-size: 17px; line-height: 1.6; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .button { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 18px; border-radius: 999px; text-decoration: none; font-weight: 800; border: 1px solid transparent; }
+    .button.primary { background: var(--accent); color: #00111f; }
+    .button.secondary { border-color: rgba(255,255,255,.16); color: var(--text); background: rgba(255,255,255,.04); }
+   
+
+
+/* .slider{
+    position:relative;
+    width:360px;
+    height:620px;
+    margin:auto;
+    overflow:hidden;
+    border-radius:20px;
+    border:1px solid rgba(255,255,255,.12);
+    background:#0b1220;
+    box-shadow:0 20px 45px rgba(0,0,0,.35);
+}
+
+
+.slides{
+    display:flex;
+    width:100%;
+    height:100%;
+    transition:transform .5s ease;
+}
+
+.slide{
+    min-width:100%;
+    height:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:10px;
+}
+
+.slide img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    display:block;
+    border-radius:12px;
+} */
+
+
+
+
+.slider{
+    position: relative;
+}
+
+/* Slider */
+.slider{
+    width:100%;
+    max-width:320px;      /* pehle se chhota */
+    height:520px;
+    margin:20px auto;
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:20px;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#0b1220;
+}
+
+/* Slides */
+.slides{
+    display:flex;
+    width:100%;
+    height:100%;
+    transition:transform .5s ease;
+}
+
+.slide{
+    min-width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* Images */
+.slide img{
+    width:75%;          /* image chhoti hogi */
+    height:auto;
+    max-height:450px;
+    object-fit:contain;
+    border-radius:12px;
+}
+
+
+
+    
+
+.slide::after {
+  content: attr(data-caption);
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 16px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: rgba(2,6,23,.62);
+  color: #fff;
+  font-size: 14px;
+  backdrop-filter: blur(8px);
+}
+
+.slide::after{
+    display:none;
+}
+
+    
+    
+    
+    /* .slider-controls{
+    position:absolute;
+    bottom:15px;
+    right:15px;
+    display:flex;
+    gap:10px;
+    z-index:5;
+} */
+
+.slider-controls{
+    position:absolute;
+    top:50%;
+    left:0;
+    width:100%;
+    transform:translateY(-50%);
+    display:flex;
+    justify-content:space-between;
+    padding:0 10px;
+    pointer-events:none;
+}
+
+    
+
+/* .control{
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    border:none;
+    background:rgba(255,255,255,.18);
+    color:#fff;
+    cursor:pointer;
+} */
+
+.control{
+    pointer-events:auto;
+    width:42px;
+    height:42px;
+    border:none;
+    border-radius:50%;
+    background:rgba(255,255,255,.18);
+    color:#fff;
+    font-size:22px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.control:hover{
+    background:#38bdf8;
+}
+
+
+
+/* .benefits-box{
+    width:100%;
+    max-width:440px;          
+    margin:25px auto;
+    padding:18px 20px;
+    background:#fcfcfc;
+    border:3px solid #1da1f2;
+    border-radius:18px;
+    box-shadow:0 6px 18px rgba(0,0,0,.08);
+} */
+
+
+.benefits-box{
+
+    background:#fcfdff;
+
+    border:3px solid #1da1f2;
+
+    border-radius:22px;
+
+    padding:20px;
+
+    box-shadow:
+        0 0 25px rgba(4, 127, 204, 0.35),
+        0 10px 35px rgba(0,0,0,.18);
+
+    backdrop-filter:blur(10px);
+
+    transition:.35s;
+}
+
+.benefits-box h2{
+    margin:0 0 15px;
+    font-size:24px;          
+    color:#2452d1;
+    font-weight:700;
+}
+
+.benefits-box h2{
+
+    color:#2563eb;
+
+    font-size:32px;
+
+    font-weight:800;
+
+    text-shadow:0 0 8px rgba(37,99,235,.18);
+}
+
+/* Ye remove kar diya */
+.benefits-box h2::before{
+    display:none;
+}
+
+
+
+.benefits-list{
+    list-style:none;
+    padding:0;
+    margin:0;
+}
+
+
+
+.benefits-box:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:
+        0 0 40px rgba(29,161,242,.45),
+        0 15px 45px rgba(0,0,0,.22);
+}
+
+.benefits-list li{
+    position:relative;
+    padding-left:34px;
+    margin:12px 0;
+    font-size:18px;          /* Pehle 24px tha */
+    color:#333;
+    font-weight:500;
+    line-height:1.4;
+}
+
+
+
+.benefits-list li::before{
+    content:"✔";
+    position:absolute;
+    left:0;
+    top:0;
+    color:#00c853;
+    font-size:22px;          /* Tick bhi chhota */
+    font-weight:bold;
+}
+
+
+
+@media(max-width:768px){
+
+.benefits-box{
+    max-width:95%;
+    padding:24px 22px;
+}
+
+.benefits-box h2{
+    font-size:28px;
+}
+
+.benefits-list li{
+    font-size:20px;
+    padding-left:40px;
+    margin:18px 0;
+}
+
+.benefits-list li::before{
+    font-size:28px;
+}
+
+}
+
+.footer-note{
+    text-align:center;
+    color:#cbd5e1;
+    font-size:14px;
+}
+
+.telegram-link{
+    color:#38bdf8;
+    text-decoration:none;
+    font-weight:600;
+}
+
+.telegram-link:hover{
+    color:#60d8ff;
+    text-decoration:underline;
+}
+
+
+.hero-title {
+    font-size: clamp(42px, 6vw, 72px);
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -2px;
+    color: #ffffff;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.hero-title span {
+    background: linear-gradient(90deg, #00E5FF, #00FF99);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: inline-block;
+    text-shadow: 0 0 20px rgba(0, 229, 255, 0.35);
+}
+
+
+.dots { display: flex; gap: 8px; justify-content: center; }
+    .dot { width: 10px; height: 10px; border-radius: 999px; border: 0; background: rgba(255,255,255,.28); cursor: pointer; }
+    .dot.is-active { background: var(--accent); }
+    .footer-note { color: var(--muted); font-size: 13px; text-align: center; }
+    @media (max-width: 900px) { .hero { grid-template-columns: 1fr; } .slider { min-height: 320px; } }
+    @media (max-width: 640px) { .shell { border-radius: 18px; } .actions { flex-direction: column; } .button { width: 100%; } .slide::after { font-size: 13px; } }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="shell" aria-label="Landing page with image slider and Telegram contact link">
+      <div class="hero">
+        <div>
+         
+          <!-- <h1>Invest less and gain more</h1> -->
+        
+          <h1 class="hero-title">
+    Invest Less,<br>
+    <span>Gain More</span>
+</h1>
+
+
+        
+        
+<!--         
+          <h2>✔ App Benefits</h2>
+<ul style="list-style: none;">
+  <li>✔ Trusted & Genuine</li>
+  <li>✔ Daily Income & Daily Withdrawal</li>
+  <li>✔ Instant Fast Withdrawal Success</li>
+  <li>✔ 24/7 Support Available</li>
+</ul> -->
+
+
+          
+        <div class="slider" id="gallery" aria-label="Image slider">
+          
+
+<div class="slides" data-slides>
+
+ <div class="slide" >
+        <img src="imageone.jpg" alt="Image 1">
+    </div>
+
+     <div class="slide" >
+        <img src="imagetwo.jpg" alt="Image 1">
+    </div>
+
+    <div class="slide" >
+        <img src="img1.jpg" alt="Image 1">
+    </div>
+
+    <div class="slide" >
+        <img src="img2.jpg" alt="Image 2">
+    </div>
+
+    <div class="slide" >
+        <img src="img3.jpg" alt="Image 3">
+    </div>
+
+    <div class="slide" >
+        <img src="img4.jpg" alt="Image 4">
+    </div>
+
+    <div class="slide" >
+        <img src="img5.jpg" alt="Image 5">
+    </div>
+
+    <div class="slide" >
+        <img src="img6.jpg" alt="Image 6">
+    </div>
+</div>
+
+          <div class="slider-controls">
+            <button class="control" type="button" data-prev aria-label="Previous image">‹</button>
+            <button class="control" type="button" data-next aria-label="Next image">›</button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="dots" aria-label="Slide navigation" data-dots></div>
+
+      <div class="actions">
+            <a class="button primary" href="https://t.me/Technicalsbk78" target="_blank" rel="noopener noreferrer">
+    Join our Telegram Channel</a>
+          
+          </div>
+        </div>
+
+<div class="benefits-box">
+    <h2>✅ <span>App Benefits</span></h2>
+
+    <ul class="benefits-list">
+        <li>Zero risk</li>
+        <li>Trusted & Genuine</li>
+        <li>Daily Income & Daily Withdrawal</li>
+        <li>Instant Fast Withdraw Success</li>
+        <li>24/7 Support Available</li>
+    </ul>
+</div>
+
+    
+
+
+      <!-- <p class="footer-note">Telegram: https://t.me/Technicalsbk78</p> -->
+     
+<!-- <p class="footer-note">
+    Telegram:
+    <a href="https://t.me/Technicalsbk78"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="telegram-link">
+       https://t.me/Technicalsbk78
+    </a>
+</p> -->
+
+
+
+    </section>
+  </main>
+  <script>
+    (function () {
+      var slides = document.querySelector('[data-slides]');
+      var dotsWrap = document.querySelector('[data-dots]');
+      var total = slides.children.length;
+      var index = 0;
+      var timer;
+
+      function renderDots() {
+        dotsWrap.innerHTML = '';
+        for (var i = 0; i < total; i++) {
+          var dot = document.createElement('button');
+          dot.className = 'dot' + (i === index ? ' is-active' : '');
+          dot.type = 'button';
+          dot.setAttribute('aria-label', 'Go to image ' + (i + 1));
+          dot.addEventListener('click', function (i) { return function () { goTo(i); restart(); }; }(i));
+          dotsWrap.appendChild(dot);
+        }
+      }
+
+      function goTo(next) {
+        index = (next + total) % total;
+        slides.style.transform = 'translateX(' + (-index * 100) + '%)';
+        Array.prototype.forEach.call(dotsWrap.children, function (dot, i) { dot.classList.toggle('is-active', i === index); });
+      }
+
+      function restart() { clearInterval(timer); timer = setInterval(function () { goTo(index + 1); }, 4000); }
+
+      document.querySelector('[data-prev]').addEventListener('click', function () { goTo(index - 1); restart(); });
+      document.querySelector('[data-next]').addEventListener('click', function () { goTo(index + 1); restart(); });
+      renderDots();
+      goTo(0);
+      restart();
+    })();
+  </script>
+</body>
+</html>
