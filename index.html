@@ -270,107 +270,105 @@
 }
 
 
-/* 
-@media(max-width:768px){
 
-.benefits-box{
-    max-width:95%;
-    padding:24px 22px;
-}
-
-.benefits-box h2{
-    font-size:28px;
-}
-
-.benefits-list li{
-    font-size:20px;
-    padding-left:40px;
-    margin:18px 0;
-}
-
-.benefits-list li::before{
-    font-size:28px;
-}
-
-} */
 
 
 /* Mobile View */
-@media (max-width: 768px) {
+@media (max-width:768px){
 
     .hero{
-        grid-template-columns: 1fr;
-        gap: 12px;
+        grid-template-columns:1fr;
+        gap:12px;
     }
 
     h1{
-        font-size: 34px;
-        line-height: 1.1;
-        margin-bottom: 10px;
+        font-size:34px;
+        line-height:1.05;
+        margin-bottom:8px;
     }
 
     .copy{
-        font-size: 14px;
-        margin-bottom: 12px;
+        font-size:14px;
+        margin-bottom:12px;
     }
 
+    /* IMAGE CONTAINER */
+    .slider{
+        width:250px;
+        height:320px;
+        min-height:320px;
+        margin:12px auto;
+        padding:8px;
+        border-radius:20px;
+        overflow:hidden;
+    }
 
+    /* SLIDES */
+    .slides{
+        display:flex;
+        height:100%;
+        transition:transform .5s ease;
+    }
 
-    /* Slider Box */
-.slider{
-    width: 290px;      /* pehle 220px tha */
-    height: 100px;     /* pehle 360px tha */
-    min-height: 70px;
-    margin: 10px auto;
-    padding: 8px;
-    border-radius: 18px;
-}
+    .slide{
+        min-width:100%;
+        flex:0 0 100%;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+    }
 
+    /* IMAGES */
+    .slide img{
+        width:100%;
+        height:100%;
+        object-fit:contain;
+    }
 
+    /* FIRST IMAGE (thodi badi) */
+    .slide:first-child img{
+        width:108%;
+        height:100%;
+        object-fit:contain;
+    }
 
-.slide img{
-    width:115%;      /* image width badh gayi */
-    height:100%;
-    object-fit:contain;
-}
+    /* ARROWS */
+    .slider-controls{
+        position:absolute;
+        inset:0;
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        padding:0 6px;
+        pointer-events:none;
+    }
 
+    .control{
+        width:38px;
+        height:38px;
+        pointer-events:auto;
+    }
 
-/* Slider Buttons */
-.slider-controls{
-    left: 0;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    padding: 0 2px;
-}
-
-.control{
-    width: 36px;
-    height: 36px;
-}
-
-
-    /* Buttons */
+    /* BUTTON */
     .button{
-        min-height: 42px;
-        font-size: 15px;
+        min-height:42px;
+        font-size:15px;
     }
 
-    /* Benefits Box */
+    /* BENEFITS BOX */
     .benefits-box{
-        margin-top: 18px;
-        padding: 18px;
-    }
-
-    .benefits-box li{
-        font-size: 18px;
-        margin: 14px 0;
+        margin-top:18px;
+        padding:16px;
     }
 
     .benefits-title{
-        font-size: 23px;
+        font-size:23px;
     }
 
+    .benefits-box li{
+        font-size:17px;
+        margin:12px 0;
+    }
 }
 
 
