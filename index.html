@@ -38,7 +38,12 @@ text-shadow:
 
 
 
-.hero{display;flex-direction;align-items;gap:20px;}
+.hero{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:20px;
+}
 
 .eyebrow { display: inline-flex; width: fit-content; padding: 8px 12px; border: 1px solid rgba(56,189,248,.3); border-radius: 999px; color: var(--accent); font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
 h1 { margin: 0; font-size: clamp(34px, 5vw, 62px); line-height: .98; letter-spacing: -.04em; }
@@ -47,14 +52,11 @@ h1 { margin: 0; font-size: clamp(34px, 5vw, 62px); line-height: .98; letter-spac
 .button { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 18px; border-radius: 999px; text-decoration: none; font-weight: 800; border: 1px solid transparent; }
 .button.primary { background: var(--accent); color: #00111f; }
 .button.secondary { border-color: rgba(255,255,255,.16); color: var(--text); background: rgba(255,255,255,.04); }
-
-/* Slider Container /.slider{position: relative;width: 100%;max-width: 250px;      / Pehle 320-360px hoga /height: 430px;         / Pehle 560-600px tha */margin: 15px auto;border-radius: 22px;border: 1px solid rgba(255,255,255,.12);background: #0b1220;overflow: hidden;display: flex;align-items: center;justify-content: center;}
-
-/* Slides */.slides{display;width:100%;height:100%;transition .5s ease;}
+.slides{display;width:100%;height:100%;transition .5s ease;}
 
 .slide{min-width:100%;display;justify-content;align-items;}
 
-/* Images /.slide img{width:75%;          / image chhoti hogi */height;max-height:450px;object-fit;border-radius:12px;}
+
 
 .slide::after {content: attr(data-caption);position: absolute;left: 16px;right: 16px;bottom: 16px;padding: 10px 12px;border-radius: 14px;background: rgba(2,6,23,.62);color: #fff;font-size: 14px;backdrop-filter: blur(8px);}
 
@@ -64,9 +66,19 @@ h1 { margin: 0; font-size: clamp(34px, 5vw, 62px); line-height: .98; letter-spac
 
 
 
-.control{pointer-events;width:42px;height:42px;border;border-radius:50%;background(255,255,255,.18);color:#fff;font-size:22px;cursor;transition:.3s;}
 
-.control
+.control{
+    pointer-events:auto;
+    width:42px;
+    height:42px;
+    border:none;
+    border-radius:50%;
+    background:rgba(255,255,255,.18);
+    color:#fff;
+    font-size:22px;
+    cursor:pointer;
+    transition:.3s;
+}
 
 .benefits-box{
 
@@ -104,29 +116,46 @@ text-shadow:0 0 8px rgba(37,99,235,.18);
 
 }
 
-/* Ye remove kar diya */.benefits-box h2::before{display;}
+/* Ye remove kar diya */
 
 
 
-.benefits-list{list-style;padding:0;margin:0;}
-
-
-
-.benefits-box{
-
-transform:translateY(-4px);
-
-box-shadow:
-    0 0 40px rgba(29,161,242,.45),
-    0 15px 45px rgba(0,0,0,.22);
-
+.benefits-list{
+    list-style:none;
+    padding:0;
+    margin:0;
 }
 
-.benefits-list li{position;padding-left:34px;margin:12px 0;font-size:18px;          /* Pehle 24px tha // color:#333; */color: #fff;font-weight:500;line-height:1.4;}
+.benefits-box:hover{
+    transform:translateY(-4px);
+    box-shadow:
+        0 0 40px rgba(29,161,242,.45),
+        0 15px 45px rgba(0,0,0,.22);
+}
 
 
 
-.benefits-list li::before{content:"✔";position;left:0;top:0;color:#00c853;/* color: #fff; /font-size:22px;          / Tick bhi chhota */font-weight;}
+.benefits-list li{
+    position:relative;
+    padding-left:34px;
+    margin:12px 0;
+    font-size:18px;
+    color:#fff;
+    font-weight:500;
+    line-height:1.4;
+}
+
+
+
+.benefits-list li::before{
+    content:"✔";
+    position:absolute;
+    left:0;
+    top:0;
+    color:#00c853;
+    font-size:22px;
+    font-weight:bold;
+}
 
 /* Mobile View */@media (max-width:768px){
 
@@ -150,8 +179,18 @@ h1{
 
 .slide img{width:88%;height:100%;object-fit;}
 
-.slider-controls{position;top:50%;left:0;right:0;transform(-50%);display;justify-content;padding:0 10px;z-index:100;pointer-events;}
-
+.slider-controls{
+    position:absolute;
+    top:50%;
+    left:0;
+    right:0;
+    transform:translateY(-50%);
+    display:flex;
+    justify-content:space-between;
+    padding:0 10px;
+    z-index:100;
+    pointer-events:none;
+}
 .control{
     width:36px;
     height:36px;
@@ -189,11 +228,21 @@ h1{font-size:25px;line-height:1.04;margin-bottom:10px;}
 
 }
 
-.footer-note{text-align;color:#cbd5e1;font-size:14px;}
+.footer-note{
+    text-align:center;
+    color:#cbd5e1;
+    font-size:14px;
+}
 
-.telegram-link{color:#38bdf8;text-decoration;font-weight:600;}
-
-.telegram-link{color:#60d8ff;text-decoration;}
+.telegram-link{
+    color:#38bdf8;
+    text-decoration:none;
+    font-weight:600;
+}
+    .telegram-link:hover{
+    color:#60d8ff;
+    text-decoration:underline;
+}
 
 .hero-title {font-size: clamp(42px, 6vw, 72px);font-weight: 900;line-height: 1;letter-spacing: -2px;color: #ffffff;margin-bottom: 20px;text-transform: uppercase;}
 
