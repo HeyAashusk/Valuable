@@ -22,19 +22,54 @@ radial-gradient(circle at 50% 90%, rgba(37,99,235,0.05), transparent 40%),
 linear-gradient(160deg, #ffffff 0%, #f8fbff 50%, #eef6ff 100%);
 background-attachment:fixed;; }
 
-    body{
+    /* body{
       margin:0;
     display:flex;
-    justify-content:center;   /* Horizontal center */
-    align-items:flex-start;   /* Vertical top */
+    justify-content:center;   
+    align-items:flex-start;  
     padding-top:20px;
+} */
+
+
+    body{
+    margin:0;
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+    padding-top:5px;
+    min-height:auto;
 }
 
 .page { min-height: auto; display: grid; place-items: center; padding: clamp(16px, 3vw, 32px); }
 
-.shell { width: min(1120px, 100%); display: grid; gap: 24px; padding: clamp(18px, 3vw, 32px); border: 1px solid var(--line); border-radius: 24px; background: #fcfdff;
+/* .shell { width: min(1120px, 100%); display: grid; gap: 24px; padding: clamp(18px, 3vw, 32px); border: 1px solid var(--line); border-radius: 24px; background: #fcfdff;
         box-shadow: 0 25px 60px rgba(0,0,0,.45),
-    0 0 30px rgba(56,189,248,.08); }
+    0 0 30px rgba(56,189,248,.08); } */
+
+
+    .shell{
+    width:min(1120px,100%);
+    display:grid;
+    gap:16px;
+    padding:10px 20px;
+    background:#fff;
+    border:none;
+    border-radius:0;
+    box-shadow:none;
+
+      padding:8px 20px;
+}
+
+
+    /* .shell{
+    width:min(1120px,100%);
+    display:grid;
+    gap:16px;
+    padding:10px 20px;
+    border:none;
+    background:transparent;
+    box-shadow:none;
+} */
 
 .hero h1{font-size: clamp(34px,5vw,60px);font-weight:800;color:#2563eb;   /* Same blue as App Benefits */line-height:1.1;margin-bottom:20px;
 
